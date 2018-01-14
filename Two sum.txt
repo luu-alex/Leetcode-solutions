@@ -1,0 +1,33 @@
+/*Runs at O(nlogn) time due to the sort */
+
+class Solution:
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        sortnums = sorted(nums)
+    
+        i=0
+
+        j=len(nums)-1
+        while (i < len(nums)):
+            while (j>i):
+                if (target==sortnums[i]+sortnums[j]):
+                    first = sortnums[i]
+                    second = sortnums[j]
+                    if (first==second):
+                        minimum = nums.index(first)
+                        maximum = nums[minimum+1:].index(second)+nums.index(first)+1
+                    else:
+                        minimum = min(nums.index(first),nums.index(second))
+                        maximum = max(nums.index(first),nums.index(second))
+                    
+                    return [minimum,maximum]
+                    
+                elif (target<sortnums[i]+sortnums[j]):
+                    j-=1
+                elif (target>sortnums[i]+sortnums[j]):
+                    i+=1
+        

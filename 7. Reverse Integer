@@ -1,0 +1,26 @@
+class Solution:
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        reverse = 0 #int
+        multiplier = 0
+        negative=0
+        if x<0: #Negative flag
+            negative =1
+            x*=-1
+        while x>0: #Takes the length of str(x) time
+            ten=1;
+            sub=x
+            while sub>=10:
+                sub = sub//10
+                ten*=10
+            reverse+=(x%10)*ten
+            x= x//10
+        if negative:
+            reverse*=-1
+        if reverse>(2**31-1) or reverse<-(2**31-1):
+            reverse=0
+        return reverse
+        

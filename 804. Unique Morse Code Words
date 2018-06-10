@@ -1,0 +1,21 @@
+class Solution:
+    def uniqueMorseRepresentations(self, words):
+        """
+        :type words: List[str]
+        :rtype: int
+        """
+        table= [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+        unique_list= []
+        unique=""
+        count = 0
+        for i in words:
+            unique=""
+            for k in i:
+                unique+=(table[ord(k)-97])
+            if unique in unique_list:
+                pass
+            else:
+                unique_list.append(unique)
+                count+=1
+        return count
+            

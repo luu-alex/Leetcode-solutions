@@ -1,0 +1,40 @@
+class Solution:
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        if not s:
+            return True 
+        count=0
+        list = []
+        for i in s:
+            if i=="(" or i=="[" or i=="{":
+                list.append(i)
+                count+=1
+            elif i==")" or i=="]" or i=="}":
+                if len(list) == 0 or count==0:
+                    return False
+                if i==")":
+                    if list[count-1] =="(":
+                        list.pop()
+                        count-=1
+                    else:
+                        return False
+                elif i=="]":
+                    if list[count-1] =="[":
+                        list.pop()
+                        count-=1
+                    else:
+                        return False
+                elif i=="}":
+                    if list[count-1] =="{":
+                        list.pop()
+                        count-=1
+                    else:
+                        return False
+                else:
+                    return False
+        if count!=0:
+            return False
+        return True

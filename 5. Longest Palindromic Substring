@@ -1,0 +1,40 @@
+class Solution:
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        hashmap = {}
+        dict = {}
+        if not s:
+            return ""
+        longest = 1
+        longa = s[0]
+        for i in range(len(s)):
+            if s[i] in hashmap:
+                for begin in hashmap[s[i]]:
+                    if i-begin==1:
+                        longest = max(2,longest)
+                        if longest == 2:
+                            longa = s[begin:i+1]
+                        dict[s[begin:i+1]]=1
+                    if i-begin==2:
+                        longest= max(3,longest)
+                        if longest == 3:
+                            longa = s[begin:i+1]
+                        dict[s[begin:i+1]]=1
+                    elif s[begin+1:i] in dict:
+                        leng = i-begin+1
+                        longest = max(leng,longest)
+                        if longest == leng:
+                            longa=s[begin:i+1]
+                        dict[s[begin:i+1]] = 1
+                hashmap[s[i]].append(i)
+            else:
+                hashmap[s[i]]=[i]
+                dict[s[i]] = 1
+        return longa
+            
+            
+            
+        

@@ -1,0 +1,33 @@
+class Solution:
+    def predictPartyVictory(self, senate):
+        """
+        :type senate: str
+        :rtype: str
+        """
+        i=0
+        dire=0
+        radiant=0
+        
+        victory = False
+        while victory == False:
+            if senate[i] == "R":
+                if dire==0:
+                    radiant+=1
+                else:
+                    senate = senate[:i]+senate[i+1:]
+                    dire-=1
+                    i-=1
+            elif senate[i] == "D":
+                if radiant==0:
+                    dire+=1;
+                else:
+                    senate = senate[:i]+senate[i+1:]
+                    radiant-=1
+                    i-=1
+            i+=1;
+            if i >= len(senate):
+                if senate.find("R") == -1:
+                    return "Dire"
+                if senate.find("D")== -1:
+                    return "Radiant"
+                i=0

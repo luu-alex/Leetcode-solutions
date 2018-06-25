@@ -1,0 +1,25 @@
+class Solution:
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        if not strs:
+            return ""
+        if len(strs) == 1:
+            return strs[0]
+        minlen = 9999
+        for prefix in strs:
+            minlen = min(len(prefix),minlen)
+        index = strs.pop(0)
+        longest_str = ""
+        match = ""
+        for i in range(minlen):
+            match = index[i]
+            for prefix in strs:
+                if match != prefix[i]:
+                    return longest_str
+            longest_str+=match
+                
+        return longest_str
+        

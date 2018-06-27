@@ -1,0 +1,16 @@
+class Solution:
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        dict = {}
+        counter = 0
+        for i in range(len(nums)):
+            if nums[i] not in dict:
+                dict[nums[i]] = 1
+                nums[counter] = nums[i]
+                counter+=1
+
+        return counter
+        

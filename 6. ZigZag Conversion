@@ -1,0 +1,41 @@
+class Solution:
+    def convert(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        if numRows == 1:
+            return s
+        i=0
+        index = 0
+        row = 0
+        zigzag =""
+        
+        while i < numRows:
+            if row == 0 or row == numRows-1:
+                while index < len(s):
+                    zigzag+= s[index]
+                    index = index + numRows-1+numRows-1
+                    
+
+            if row != 0 and row <= numRows-1:
+                spring = 0
+                step = 2*(numRows - 1 - row)
+                step1 = 2*numRows-2 - step
+                while index < len(s):
+                    if spring == 0:
+                        zigzag += s[index]
+                        index += step
+                        spring = 1
+                    else:
+                        zigzag += s[index]
+                        index += step1
+                        spring = 0
+
+            i+=1
+            row+=1
+            index=row
+        return zigzag
+            
+            

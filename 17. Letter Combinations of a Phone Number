@@ -1,0 +1,113 @@
+class Solution: #36 ms
+    def letterCombinations(self, digits):
+        """
+        :type digits: str
+        :rtype: List[str]
+        """
+        lst = []
+        if not digits:
+            return []
+        i = digits[0]
+        if i == "2":
+            lst.append("a")
+            lst.append("b")
+            lst.append("c")
+        elif i =="3":
+            lst.append("d")
+            lst.append("e")
+            lst.append("f")
+        elif i =="4":
+            lst.append("g")
+            lst.append("h")
+            lst.append("i")
+        elif i =="5":
+            lst.append("j")
+            lst.append("k")
+            lst.append("l")
+        elif i =="6":
+            lst.append("m")
+            lst.append("n")
+            lst.append("o")
+        elif i =="7":
+            lst.append("p")
+            lst.append("q")
+            lst.append("r")
+            lst.append("s")
+        elif i =="8":
+            lst.append("t")
+            lst.append("u")
+            lst.append("v")
+        elif i =="9":
+            lst.append("w")
+            lst.append("x")
+            lst.append("y")
+            lst.append("z")
+        for i in digits[1:]:
+            if i == "2":
+                newlst = []
+                
+                for i in lst:
+                    newlst.append(i+"a")
+                    newlst.append(i+"b")
+                    newlst.append(i+"c")
+                lst = newlst
+                
+                
+            if i == "3":
+                newlst = []
+                for i in lst:
+                    newlst.append(i+"d")
+                    newlst.append(i+"e")
+                    newlst.append(i+"f")
+                lst = newlst
+                
+            if i == "4":
+                newlst = []
+                for i in lst:
+                    newlst.append(i+"g")
+                    newlst.append(i+"h")
+                    newlst.append(i+"i")
+                lst = newlst
+                
+            if i == "5":
+                newlst = []
+                for i in lst:
+                    newlst.append(i+"j")
+                    newlst.append(i+"k")
+                    newlst.append(i+"l")
+                lst = newlst
+                
+            if i == "6":
+                newlst = []
+                for i in lst:
+                    newlst.append(i+"m")
+                    newlst.append(i+"n")
+                    newlst.append(i+"o")
+                lst = newlst
+                
+            if i == "7":
+                newlst = []
+                for i in lst:
+                    newlst.append(i+"p")
+                    newlst.append(i+"q")
+                    newlst.append(i+"r")
+                    newlst.append(i+"s")
+                lst = newlst
+                
+            if i == "8":
+                newlst = []
+                for i in lst:
+                    newlst.append(i+"t")
+                    newlst.append(i+"u")
+                    newlst.append(i+"v")
+                lst = newlst
+                
+            if i == "9":
+                newlst = []
+                for i in lst:
+                    newlst.append(i+"w")
+                    newlst.append(i+"x")
+                    newlst.append(i+"y")
+                    newlst.append(i+"z")
+                lst = newlst
+        return lst

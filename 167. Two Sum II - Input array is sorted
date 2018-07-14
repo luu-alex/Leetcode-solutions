@@ -1,4 +1,4 @@
-class Solution: #60 ms
+class Solution: #36 ms
     def twoSum(self, numbers, target):
         """
         :type numbers: List[int]

@@ -1,0 +1,16 @@
+class Solution:
+    def maxSubArray(self, nums): #runtime is O(N)
+        """
+        :type nums: List[int] 
+        :rtype: int
+        """
+        max = nums[0]
+        consec = 0
+        for i in nums:
+            consec += i
+            if consec > max:
+                max = consec
+            if consec <0:
+                consec =0
+        return max
+                

@@ -1,0 +1,27 @@
+class Solution:
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if not nums:
+            return []
+        if len(nums) == 1:
+            return [nums]
+        permutations = [[nums.pop()]]
+        
+        newlst = []
+        for i in nums:
+            newlst=[]
+            for j in permutations:
+                for k in range(0,len(j)+1,1):
+                    a=[]
+                    if k!=0:
+                        a=a+j[0:k]
+                    a=a+[i]
+                    if k<len(j):
+                        a=a+(j[k:])
+                    newlst.append(a)
+            permutations = newlst
+        return newlst
+                

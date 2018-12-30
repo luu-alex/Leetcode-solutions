@@ -1,0 +1,27 @@
+class Solution:
+    def longestValidParentheses(self, s):
+        """
+        :type s: str
+        :rtype: int
+        basecase:
+        if not s:
+            0
+        if s
+        """
+        if not s:
+            return 0 
+        longest = 0 
+        lst = [-1]
+        for i in range(len(s)):
+            if s[i]=='(':
+                lst.append(i)
+            else:
+                lst.pop()
+                if len(lst) !=0:
+                    longest = max(longest,i-lst[(len(lst))-1] )
+                else:
+                    lst.append(i)
+        return longest
+            
+        
+        

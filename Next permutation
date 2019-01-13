@@ -1,0 +1,40 @@
+class Solution:
+    def nextPermutation(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        
+        if not nums:
+            return 
+        if len(nums)==1:
+            return 
+        def reverse(nums,l,r):
+            while l<r:
+                nums[l],nums[r] = nums[r],nums[l]
+                l+=1
+                r-=1
+        index=-1
+        prev = len(nums)-1
+        for i in range(len(nums)-2,-1,-1):
+            if nums[prev]>nums[i] and index==-1:
+                index = i
+                break;
+            prev = i
+        if index==-1:
+            nums = reverse(nums,0,len(nums)-1)
+            return
+        next = index+1
+        for i in range(index+1,len(nums)):
+            if nums[index]<nums[i] and nums[next]>=nums[i]:
+                next = i
+        nums[index], nums[next]=nums[next],nums[index]
+        reverse(nums,index+1,len(nums)-1)
+        
+        
+        
+        return
+            
+            
+        
+            
